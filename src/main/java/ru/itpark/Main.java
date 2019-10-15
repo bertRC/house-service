@@ -3,6 +3,8 @@ package ru.itpark;
 import ru.itpark.model.House;
 import ru.itpark.service.HouseService;
 
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
         HouseService service = new HouseService();
@@ -43,8 +45,9 @@ public class Main {
                 "за сутки",
                 "Мамадышский тракт, Республика Татарстан, Казань, жилой массив Вознесенское, Дубравная улица, 14"));
 
-        for (House house : service.getHouses()) {
-            System.out.println(house);
+        List<House> results = service.search("ново-сав");
+        for (House result : results) {
+            System.out.println(result);
         }
     }
 }
