@@ -47,7 +47,7 @@ public class Main {
 
         List<House> results = service.search("ново-сав");
         for (House result : results) {
-            System.out.println(result);
+            System.out.println((result));
         }
     }
 }
