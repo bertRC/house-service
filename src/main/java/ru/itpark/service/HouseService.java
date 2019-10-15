@@ -7,15 +7,6 @@ import java.util.List;
 
 public class HouseService {
     private List<House> houses;
-    private String[] someLines;
-
-    public String[] getSomeLines() {
-        return someLines;
-    }
-
-    public void setSomeLines(String[] someLines) {
-        this.someLines = someLines;
-    }
 
     public HouseService() {
         houses = new ArrayList<>();
