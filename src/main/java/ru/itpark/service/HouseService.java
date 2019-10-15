@@ -50,7 +50,7 @@ public class HouseService {
             boolean suitableForBuyRent = isToBuy && house.getPayPeriod() == null || isToRent && house.getPayPeriod() != null;
             boolean suitableForMinPrice = house.getPrice() >= minPrice;
             boolean suitableForMaxPrice = house.getPrice() <= maxPrice || maxPrice == 0;
-            boolean suitableForAddress = house.getAddress().toLowerCase().contains(address.toLowerCase());
+            boolean suitableForAddress = house.getAddress().toLowerCase().contains(address.toLowerCase()) || house.getTitle().toLowerCase().contains(address.toLowerCase());
             if (suitableForBuyRent & suitableForMinPrice & suitableForMaxPrice & suitableForAddress) {
                 results.add(house);
             }
