@@ -64,4 +64,16 @@ public class House {
     public void setAddress(String address) {
         this.address = address;
     }
+
+    @Override
+    public String toString() {
+        String rubleSymbol = " \u20BD";
+        String endOfLine = "\r\n";
+        String result = title + endOfLine + price + rubleSymbol;
+        if (payPeriod != null) {
+            result = result + " " + payPeriod;
+        }
+        result = result + endOfLine + address + endOfLine;
+        return result;
+    }
 }
