@@ -45,9 +45,19 @@ public class Main {
                 "за сутки",
                 "Мамадышский тракт, Республика Татарстан, Казань, жилой массив Вознесенское, Дубравная улица, 14"));
 
-        List<House> results = service.search("ново-сав");
-        for (House result : results) {
-            System.out.println(result);
+        {
+            System.out.println("--- Поиск по району ---");
+            List<House> results = service.search("ново-сав");
+            for (House result : results) {
+                System.out.println(result);
+            }
+        }
+        {
+            System.out.println("--- Поиск по диапазону цен ---");
+            List<House> results = service.search(3_000, 6_000_000);
+            for (House result : results) {
+                System.out.println(result);
+            }
         }
     }
 }
