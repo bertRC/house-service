@@ -59,5 +59,12 @@ public class Main {
                 System.out.println(result);
             }
         }
+        {
+            System.out.println("--- Поиск объявлений, в которых сдают квартиру/дом ---");
+            List<House> results = service.searchToRent(0, 0, "коттедж");
+            for (House result : results) {
+                System.out.println(result);
+            }
+        }
     }
 }
