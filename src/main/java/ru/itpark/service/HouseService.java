@@ -6,11 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class HouseService {
-    private List<House> houses;
-
-    public HouseService() {
-        houses = new ArrayList<>();
-    }
+    private List<House> houses = new ArrayList<>();
 
     public List<House> getHouses() {
         return houses;
