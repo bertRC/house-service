@@ -5,15 +5,13 @@ public class House {
     private String title;
     private String photoUrl;
     private int price;
-    private String payPeriod;
     private String address;
 
-    public House(int id, String title, String photoUrl, int price, String payPeriod, String address) {
+    public House(int id, String title, String photoUrl, int price, String address) {
         this.id = id;
         this.title = title;
         this.photoUrl = photoUrl;
         this.price = price;
-        this.payPeriod = payPeriod;
         this.address = address;
     }
 
@@ -49,14 +47,6 @@ public class House {
         this.price = price;
     }
 
-    public String getPayPeriod() {
-        return payPeriod;
-    }
-
-    public void setPayPeriod(String payPeriod) {
-        this.payPeriod = payPeriod;
-    }
-
     public String getAddress() {
         return address;
     }
@@ -69,11 +59,6 @@ public class House {
     public String toString() {
         String rubleSymbol = " \u20BD";
         String endOfLine = "\r\n";
-        String result = title + endOfLine + price + rubleSymbol;
-        if (payPeriod != null) {
-            result = result + " " + payPeriod;
-        }
-        result = result + endOfLine + address + endOfLine;
-        return result;
+        return title + endOfLine + price + rubleSymbol + endOfLine + address + endOfLine;
     }
 }

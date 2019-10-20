@@ -21,33 +21,20 @@ public class HouseService {
     }
 
     public List<House> search(int minPrice, int maxPrice) {
-        return search(minPrice, maxPrice, "", true, true);
+        return search(minPrice, maxPrice, "");
     }
 
     public List<House> search(String address) {
-        return search(0, 0, address, true, true);
+        return search(0, 0, address);
     }
 
-    public List<House> search(int minPrice, int maxPrice, String address) {
-        return search(minPrice, maxPrice, address, true, true);
-    }
-
-    public List<House> searchToBuy(int minPrice, int maxPrice, String address) {
-        return search(minPrice, maxPrice, address, true, false);
-    }
-
-    public List<House> searchToRent(int minPrice, int maxPrice, String address) {
-        return search(minPrice, maxPrice, address, false, true);
-    }
-
-    private List<House> search(int minPrice, int maxPrice, String address, boolean isToBuy, boolean isToRent) {
+    private List<House> search(int minPrice, int maxPrice, String address) {
         List<House> results = new ArrayList<>();
         for (House house : houses) {
-            boolean suitableForBuyRent = isToBuy && house.getPayPeriod() == null || isToRent && house.getPayPeriod() != null;
             boolean suitableForMinPrice = house.getPrice() >= minPrice;
             boolean suitableForMaxPrice = house.getPrice() <= maxPrice || maxPrice == 0;
             boolean suitableForAddress = house.getAddress().toLowerCase().contains(address.toLowerCase()) || house.getTitle().toLowerCase().contains(address.toLowerCase());
-            if (suitableForBuyRent & suitableForMinPrice & suitableForMaxPrice & suitableForAddress) {
+            if (suitableForMinPrice & suitableForMaxPrice & suitableForAddress) {
                 results.add(house);
             }
         }
