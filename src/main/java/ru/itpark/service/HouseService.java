@@ -21,23 +21,23 @@ public class HouseService {
     }
 
     public List<House> search(int minPrice, int maxPrice) {
-        return this.search(minPrice, maxPrice, "", true, true);
+        return search(minPrice, maxPrice, "", true, true);
     }
 
     public List<House> search(String address) {
-        return this.search(0, 0, address, true, true);
+        return search(0, 0, address, true, true);
     }
 
     public List<House> search(int minPrice, int maxPrice, String address) {
-        return this.search(minPrice, maxPrice, address, true, true);
+        return search(minPrice, maxPrice, address, true, true);
     }
 
     public List<House> searchToBuy(int minPrice, int maxPrice, String address) {
-        return this.search(minPrice, maxPrice, address, true, false);
+        return search(minPrice, maxPrice, address, true, false);
     }
 
     public List<House> searchToRent(int minPrice, int maxPrice, String address) {
-        return this.search(minPrice, maxPrice, address, false, true);
+        return search(minPrice, maxPrice, address, false, true);
     }
 
     private List<House> search(int minPrice, int maxPrice, String address, boolean isToBuy, boolean isToRent) {
