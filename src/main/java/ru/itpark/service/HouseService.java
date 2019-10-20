@@ -31,15 +31,9 @@ public class HouseService {
     private List<House> search(int minPrice, int maxPrice, String address) {
         List<House> results = new ArrayList<>();
         for (House house : houses) {
-//            boolean suitableForMinPrice = house.getPrice() >= minPrice;
-//            boolean suitableForMaxPrice = house.getPrice() <= maxPrice || maxPrice == 0;
-//            boolean suitableForAddress = house.getAddress().toLowerCase().contains(address.toLowerCase()) || house.getTitle().toLowerCase().contains(address.toLowerCase());
-//            if (suitableForMinPrice & suitableForMaxPrice & suitableForAddress) {
-//                results.add(house);
-//            }
-            if (house.getPrice() >= minPrice && house.getPrice() <= maxPrice && house.getAddress().toLowerCase().contains(address.toLowerCase())) {
+            if (house.getPrice() <= maxPrice && house.getPrice() >= minPrice && house.getAddress().toLowerCase().contains(address.toLowerCase())) {
                 results.add(house);
-            } else if (house.getPrice() >= minPrice && maxPrice == 0 && house.getAddress().toLowerCase().contains(address.toLowerCase())) {
+            } else if (maxPrice == 0 && house.getPrice() >= minPrice && house.getAddress().toLowerCase().contains(address.toLowerCase())) {
                 results.add(house);
             }
         }
